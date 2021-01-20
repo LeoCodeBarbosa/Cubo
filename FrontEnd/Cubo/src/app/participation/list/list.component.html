@@ -1,0 +1,41 @@
+<div class="container main-container">
+
+    <h1>Lista de Produtos</h1>
+    <hr>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Fornecedor
+                </th>
+                <th>
+                    Valor
+                </th>
+                <th>
+                    Ativo?
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let participation of participations">
+                <td>
+                    {{ participation.firstName }}
+                </td>
+                <td>
+                    {{ participation.lastName }}
+                </td>
+                <td>
+                    {{ participation.value }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
