@@ -10,7 +10,18 @@ namespace Cubo.API.Configuration
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
 
-            services.AddControllers();
+            services.AddApiVersioning(options =>
+            {
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.DefaultApiVersion = new ApiVersion(1, 0);
+                options.ReportApiVersions = true;
+            });
+
+            services.AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
+            });
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -43,7 +54,7 @@ namespace Cubo.API.Configuration
         {
             app.UseRouting();
 
-            app.UseCors("Production");
+            app.UseCors("Development");
 
             app.UseAuthentication();
             app.UseAuthorization();

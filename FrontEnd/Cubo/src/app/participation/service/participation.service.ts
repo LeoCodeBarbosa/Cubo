@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 
-import { BaseService } from 'src/app/services/base.service';
+import { BaseService } from 'src/app/shared/services/base.service';
 import { Participation } from '../models/participation';
 
 @Injectable()
