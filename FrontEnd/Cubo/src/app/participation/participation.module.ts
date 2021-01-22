@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ParticipationAppComponent } from './participation.app.component';
+import { IndexParticipationComponent } from './index/index.component';
 import { ListParticipationComponent } from './list/list.component';
 import { NewParticipationComponent } from './new/new.component';
 import { ParticipationRoutingModule } from './participation.route';
@@ -14,6 +15,7 @@ import { TextMaskModule } from 'angular2-text-mask';
 @NgModule({
   declarations: [
     ParticipationAppComponent,
+    IndexParticipationComponent,
     ListParticipationComponent,
     DoughnutChartComponent,
     NewParticipationComponent

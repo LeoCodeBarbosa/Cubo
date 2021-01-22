@@ -1,0 +1,20 @@
+.container {
+    display:flex;
+    flex-direction: column;
+    .form-container {
+        height: 7vh;
+        margin: 5px;
+    }
+    .data-container {
+        height: 65vh;
+        display: flex;
+        justify-content: space-around;
+        padding: 5vh;
+        .table-container {
+            width: 45%;
+        }
+        .grafico-container {
+            width: 45%;
+        }
+    }
+}

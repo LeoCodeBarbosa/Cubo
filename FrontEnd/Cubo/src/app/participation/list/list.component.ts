@@ -3,7 +3,7 @@ import { Participation } from '../models/participation';
 import { ParticipationService } from '../service/participation.service';
 
 @Component({
-  selector: 'app-list',
+  selector: 'app-participation-list',
   templateUrl: './list.component.html'
 })
 export class ListParticipationComponent implements OnInit {

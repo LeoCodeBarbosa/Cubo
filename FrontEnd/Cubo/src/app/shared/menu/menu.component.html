@@ -1,19 +1,23 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span>Cubo App</span>
-        <span class="nav-menu"></span>
-        <button mat-mini-fab color="primary" aria-label="Menu" [matMenuTriggerFor]="menu">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="navigateMenu('/home')">
-                <mat-icon>home</mat-icon>
-                <span>Home</span>
+    <mat-toolbar-row class="toolbar-menu-row">
+        <div class="toolbar-menu-icon">
+            <span class="nav-menu"></span>
+            <button mat-mini-fab color="primary" aria-label="Menu" [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
             </button>
-            <button mat-menu-item (click)="navigateMenu('/participation/list')">
-                <mat-icon>persons</mat-icon>
-                <span>Participantes</span>
-            </button>
-        </mat-menu>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="navigateMenu('/home')">
+                    <mat-icon>home</mat-icon>
+                    <span>Home</span>
+                </button>
+                <button mat-menu-item (click)="navigateMenu('/participation')">
+                    <mat-icon>persons</mat-icon>
+                    <span>Participações</span>
+                </button>
+            </mat-menu>
+        </div>
+        <div class="toolbar-menu-app-name">
+            <span>Cubo App</span>
+        </div>
     </mat-toolbar-row>
 </mat-toolbar>

@@ -9,8 +9,9 @@ import { ParticipationService } from '../service/participation.service';
 import { ParticipationBaseComponent } from '../participation-form.base.component';
 
 @Component({
-  selector: 'app-new',
-  templateUrl: './new.component.html'
+  selector: 'app-participation-new',
+  templateUrl: './new.component.html',
+  styleUrls: ['./new.component.scss']
 })
 export class NewParticipationComponent extends ParticipationBaseComponent implements OnInit {
 
@@ -54,17 +55,12 @@ export class NewParticipationComponent extends ParticipationBaseComponent implem
     this.participationForm.reset();
     this.errors = [];
 
-    let toast = this.toastr.success('Participação cadastrada com sucesso!', 'Sucesso!');
-    if (toast) {
-      toast.onHidden.subscribe(() => {
-        this.router.navigate(['/participation/list']);
-      });
-    }
+    location.reload()
   }
 
   processarFalha(fail: any) {
     this.errors = fail.error.errors;
     this.toastr.error('Ocorreu um erro!', 'Opa :(');
-  }  
+  }
 }
 
