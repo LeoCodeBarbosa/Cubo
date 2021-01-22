@@ -6,7 +6,7 @@ import { ParticipationService } from '../service/participation.service';
   selector: 'app-list',
   templateUrl: './list.component.html'
 })
-export class ListComponent implements OnInit {
+export class ListParticipationComponent implements OnInit {
 
   public participations: Participation[];
   errorMessage: string;
