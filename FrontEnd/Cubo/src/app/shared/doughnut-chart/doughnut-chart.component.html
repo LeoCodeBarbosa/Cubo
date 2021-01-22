@@ -1,0 +1,14 @@
+<div *ngIf="chartData != null">
+  <div class="chart-wrapper">
+    <canvas baseChart 
+      [chartType]="doughnutChartType"
+      [plugins]="doughnutChartPlugins"
+      [legend]="doughnutChartLegend"
+      [datasets]="chartData.doughnutchartData" 
+      [labels]="chartData.labels" 
+      [options]="chartData.doughnutChartOptions">
+    </canvas>
+  </div>
+</div>
+
+
