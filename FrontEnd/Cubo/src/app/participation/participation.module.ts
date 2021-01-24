@@ -7,7 +7,6 @@ import { NewParticipationComponent } from './new/new.component';
 import { DeleteParticipationComponent } from './delete/delete.component';
 import { ParticipationRoutingModule } from './participation.route';
 import { ParticipationService } from './services/participation.service';
-import { ParticipationGuard } from './services/participation.guard';
 import { DoughnutChartComponent } from '../shared/doughnut-chart/doughnut-chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -45,8 +44,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   providers: [
-    ParticipationService,
-    ParticipationGuard
+    ParticipationService
   ],
   exports: [
     ParticipationAppComponent

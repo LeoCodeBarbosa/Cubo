@@ -34,10 +34,10 @@ export abstract class ParticipationBaseComponent extends FormBaseComponent {
             }
         }
 
-        super.configurarMensagensValidacaoBase(this.validationMessages);
+        super.configureBaseValidationMsg(this.validationMessages);
     }
 
-    protected configurarValidacaoFormulario(formInputElements: ElementRef[]) {
-        super.configurarValidacaoFormularioBase(formInputElements, this.participationForm);
+    protected configureFormValidation(formInputElements: ElementRef[]) {
+        super.configureBaseFormValidation(formInputElements, this.participationForm);
     }
 }

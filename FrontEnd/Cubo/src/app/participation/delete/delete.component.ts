@@ -15,7 +15,7 @@ export class DeleteParticipationComponent {
         private toastr: ToastrService) {
     }
 
-    public excluirProduto() {
+    public deleteParticipation() {
         console.log(this.id);
         this.participationService.deleteParticipation(this.id)
             .subscribe(

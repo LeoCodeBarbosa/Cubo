@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ListParticipationComponent implements AfterViewInit {
 
-  public participationsDataSource: MatTableDataSource<Participation>;
+  public participationDataSource: MatTableDataSource<Participation>;
   displayedColumns: string[] = ['firstName', 'lastName', 'value', 'id'];
   errorMessage: string;
   
@@ -22,8 +22,8 @@ export class ListParticipationComponent implements AfterViewInit {
     this.participationService.getAll()
       .subscribe(
         participations => {
-          this.participationsDataSource = new MatTableDataSource<Participation>(participations);
-          this.participationsDataSource.paginator = this.paginator;
+          this.participationDataSource = new MatTableDataSource<Participation>(participations);
+          this.participationDataSource.paginator = this.paginator;
         },
         error => this.errorMessage);
   }

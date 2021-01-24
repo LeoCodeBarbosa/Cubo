@@ -13,11 +13,11 @@ export abstract class FormBaseComponent {
 
     mudancasNaoSalvas: boolean;
 
-    protected configurarMensagensValidacaoBase(validationMessages: ValidationMessages) {
+    protected  configureBaseValidationMsg(validationMessages: ValidationMessages) {
         this.genericValidator = new GenericValidator(validationMessages);
     }
 
-    protected configurarValidacaoFormularioBase(
+    protected configureBaseFormValidation(
         formInputElements: ElementRef[],
         formGroup: FormGroup) {
 
@@ -25,12 +25,12 @@ export abstract class FormBaseComponent {
             .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur'));
 
         merge(...controlBlurs).subscribe(() => {
-            this.validarFormulario(formGroup)
+            this.validatedForm(formGroup)
         });
     }
 
-    protected validarFormulario(formGroup: FormGroup) {
-        this.displayMessage = this.genericValidator.processarMensagens(formGroup);
+    protected validatedForm(formGroup: FormGroup) {
+        this.displayMessage = this.genericValidator.processMsgs(formGroup);
         this.mudancasNaoSalvas = true;
     }
 }

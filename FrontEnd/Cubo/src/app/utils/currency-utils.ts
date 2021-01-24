@@ -1,6 +1,6 @@
 export class CurrencyUtils {
 
-    public static StringParaDecimal(input): any {
+    public static StringToDecimal(input): any {
         if (input === null) return 0;
 
         input = input.replace(/\./g, '');
@@ -8,7 +8,7 @@ export class CurrencyUtils {
         return parseFloat(input);
     }
 
-    public static DecimalParaString(input): any {
+    public static DecimalToString(input): any {
         var ret = (input) ? input.toString().replace(".", ",") : null;
         if (ret) {
             var decArr = ret.split(",");

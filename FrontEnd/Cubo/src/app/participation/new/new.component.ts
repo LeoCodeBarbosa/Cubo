@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChildren, ElementRef } from '@angular/core';
 import { FormBuilder, Validators, FormControlName } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -19,7 +18,6 @@ export class NewParticipationComponent extends ParticipationBaseComponent implem
 
   constructor(private fb: FormBuilder,
     private participationService: ParticipationService,
-    private router: Router,
     private toastr: ToastrService) { super(); }
 
   ngOnInit(): void {
@@ -32,33 +30,33 @@ export class NewParticipationComponent extends ParticipationBaseComponent implem
   }
 
   ngAfterViewInit(): void {
-    super.configurarValidacaoFormulario(this.formInputElements);
+    super.configureFormValidation(this.formInputElements);
   }
 
   addParticipation() {
     if (this.participationForm.dirty && this.participationForm.valid) {
       this.participation = Object.assign({}, this.participation, this.participationForm.value);
 
-      this.participation.value = CurrencyUtils.StringParaDecimal(this.participation.value);
+      this.participation.value = CurrencyUtils.StringToDecimal(this.participation.value);
 
       this.participationService.addParticipation(this.participation)
         .subscribe(
-          sucesso => { this.processarSucesso(sucesso) },
-          falha => { this.processarFalha(falha) }
+          sucesso => { this.processSuccess(sucesso) },
+          falha => { this.processFail(falha) }
         );
 
       this.mudancasNaoSalvas = false;
     }
   }
 
-  processarSucesso(response: any) {
+  processSuccess(response: any) {
     this.participationForm.reset();
     this.errors = [];
 
     location.reload()
   }
 
-  processarFalha(fail: any) {
+  processFail(fail: any) {
     this.errors = fail.error.errors;
     if(this.errors[0] == ""){
       this.toastr.error('Ocorreu um erro!', 'Error');
