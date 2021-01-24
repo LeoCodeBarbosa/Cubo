@@ -5,8 +5,21 @@
         height: 7vh;
         margin: 5px;
     }
+    .text-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
+        .title{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .description{
+            padding-top: 10px;
+        }
+    }
     .data-container {
-        height: 60vh;
+        height: 48vh;
         display: flex;
         justify-content: space-around;
         padding: 5vh;
