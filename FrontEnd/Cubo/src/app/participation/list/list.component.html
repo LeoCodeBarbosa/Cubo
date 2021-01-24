@@ -1,6 +1,5 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="participationsDataSource" style="width: 100%;">
-
     <!-- Nome Column -->
     <ng-container matColumnDef="firstName">
       <th mat-header-cell *matHeaderCellDef> Nome </th>
@@ -16,7 +15,15 @@
     <!-- Valor Column -->
     <ng-container matColumnDef="value">
       <th mat-header-cell *matHeaderCellDef> Valor </th>
-      <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.value / 100 | percent:'1.2'}} </td>
+    </ng-container>
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let element"> 
+        <app-participation-delete [id]="element.id"></app-participation-delete>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

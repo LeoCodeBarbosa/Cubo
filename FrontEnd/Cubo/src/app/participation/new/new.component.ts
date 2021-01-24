@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 import { CurrencyUtils } from 'src/app/utils/currency-utils';
-import { ParticipationService } from '../service/participation.service';
+import { ParticipationService } from '../services/participation.service';
 import { ParticipationBaseComponent } from '../participation-form.base.component';
 
 @Component({
@@ -41,7 +41,7 @@ export class NewParticipationComponent extends ParticipationBaseComponent implem
 
       this.participation.value = CurrencyUtils.StringParaDecimal(this.participation.value);
 
-      this.participationService.newParticipation(this.participation)
+      this.participationService.addParticipation(this.participation)
         .subscribe(
           sucesso => { this.processarSucesso(sucesso) },
           falha => { this.processarFalha(falha) }
@@ -60,7 +60,11 @@ export class NewParticipationComponent extends ParticipationBaseComponent implem
 
   processarFalha(fail: any) {
     this.errors = fail.error.errors;
-    this.toastr.error('Ocorreu um erro!', 'Opa :(');
+    if(this.errors[0] == ""){
+      this.toastr.error('Ocorreu um erro!', 'Error');
+    }else{
+      this.toastr.error(this.errors[0], 'Error');
+    }
   }
 }
 

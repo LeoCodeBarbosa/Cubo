@@ -4,9 +4,10 @@ import { ParticipationAppComponent } from './participation.app.component';
 import { IndexParticipationComponent } from './index/index.component';
 import { ListParticipationComponent } from './list/list.component';
 import { NewParticipationComponent } from './new/new.component';
+import { DeleteParticipationComponent } from './delete/delete.component';
 import { ParticipationRoutingModule } from './participation.route';
-import { ParticipationService } from './service/participation.service';
-import { ParticipationGuard } from './service/participation.guard';
+import { ParticipationService } from './services/participation.service';
+import { ParticipationGuard } from './services/participation.guard';
 import { DoughnutChartComponent } from '../shared/doughnut-chart/doughnut-chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatDividerModule } from '@angular/material/divider';
     IndexParticipationComponent,
     ListParticipationComponent,
     DoughnutChartComponent,
-    NewParticipationComponent
+    NewParticipationComponent,
+    DeleteParticipationComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +41,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule
   ],
   providers: [
     ParticipationService,

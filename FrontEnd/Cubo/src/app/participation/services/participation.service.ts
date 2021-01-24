@@ -18,11 +18,19 @@ export class ParticipationService extends BaseService {
             .pipe(catchError(super.serviceError));
     }
 
-    newParticipation(participation: Participation): Observable<Participation> {
+    addParticipation(participation: Participation): Observable<Participation> {
         return this.http
             .post(this.UrlServiceV1 + "participation", participation, super.ObterHeaderJson())
             .pipe(
                 map(super.extractData),
                 catchError(super.serviceError));
     }
+
+    deleteParticipation(id: string): Observable<Participation> {
+        return this.http
+            .delete(this.UrlServiceV1 + "participation/" + id, super.ObterHeaderJson())
+            .pipe(
+                map(super.extractData),
+                catchError(super.serviceError));
+    }    
 }

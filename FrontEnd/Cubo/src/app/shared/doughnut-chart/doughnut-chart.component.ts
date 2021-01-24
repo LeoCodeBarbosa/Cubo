@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip, MultiDataSet } from 'ng2-charts';
-import { ParticipationService } from 'src/app/participation/service/participation.service';
+import { ParticipationService } from 'src/app/participation/services/participation.service';
 
 interface IDataset {
   data: SingleDataSet,

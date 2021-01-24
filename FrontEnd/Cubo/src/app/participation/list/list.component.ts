@@ -1,6 +1,6 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Participation } from '../models/participation';
-import { ParticipationService } from '../service/participation.service';
+import { ParticipationService } from '../services/participation.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ListParticipationComponent implements AfterViewInit {
 
   public participationsDataSource: MatTableDataSource<Participation>;
-  displayedColumns: string[] = ['firstName', 'lastName', 'value'];
+  displayedColumns: string[] = ['firstName', 'lastName', 'value', 'id'];
   errorMessage: string;
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
