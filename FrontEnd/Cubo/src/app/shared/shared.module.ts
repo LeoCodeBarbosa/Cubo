@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
-import { HomeModule } from '../home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,7 +14,6 @@ import { MatMenuModule } from '@angular/material/menu';
   ],
   imports: [
     CommonModule,
-    HomeModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,

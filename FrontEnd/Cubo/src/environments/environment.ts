@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // apiUrlv1: 'http://localhost:5000/', // vscode
-  apiUrlv1: 'https://localhost:44381/',  // VisualSyudio
+  apiUrlv1: 'http://localhost:5000/', // vscode
+  // apiUrlv1: 'https://localhost:44381/',  // VisualSyudio
 };
 
 /*

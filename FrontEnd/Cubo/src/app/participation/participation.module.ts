@@ -11,6 +11,8 @@ import { DoughnutChartComponent } from '../shared/doughnut-chart/doughnut-chart.
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
+import { MatTableModule } from '@angular/material/table'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { TextMaskModule } from 'angular2-text-mask';
     ChartsModule,
     FormsModule,
     ReactiveFormsModule,
-    TextMaskModule
+    TextMaskModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     ParticipationService,

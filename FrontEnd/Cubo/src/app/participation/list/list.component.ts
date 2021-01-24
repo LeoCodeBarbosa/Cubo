@@ -1,22 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Participation } from '../models/participation';
 import { ParticipationService } from '../service/participation.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-participation-list',
   templateUrl: './list.component.html'
 })
-export class ListParticipationComponent implements OnInit {
+export class ListParticipationComponent implements AfterViewInit {
 
-  public participations: Participation[];
+  public participationsDataSource: MatTableDataSource<Participation>;
+  displayedColumns: string[] = ['firstName', 'lastName', 'value'];
   errorMessage: string;
+  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private participationService: ParticipationService) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
     this.participationService.getAll()
       .subscribe(
-        participations => this.participations = participations,
+        participations => {
+          this.participationsDataSource = new MatTableDataSource<Participation>(participations);
+          this.participationsDataSource.paginator = this.paginator;
+        },
         error => this.errorMessage);
   }
 }
