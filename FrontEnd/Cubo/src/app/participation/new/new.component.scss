@@ -2,7 +2,13 @@
     display: flex;
     align-items: flex-end;
     margin-left: 25px;
-    .form-group{
+    .input-group{
         padding-left: 10px;
+        label{
+            color: white;
+        }
+        .mat-flat-button{
+            line-height: 26px;
+        }
     }
 }

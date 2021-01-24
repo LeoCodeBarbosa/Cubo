@@ -11,8 +11,11 @@ import { DoughnutChartComponent } from '../shared/doughnut-chart/doughnut-chart.
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
-import { MatTableModule } from '@angular/material/table'; 
+import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,17 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ReactiveFormsModule,
     TextMaskModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [
     ParticipationService,
     ParticipationGuard
+  ],
+  exports:[
+    ParticipationAppComponent
   ]
 })
 
