@@ -19,17 +19,18 @@ export abstract class ParticipationBaseComponent extends FormBaseComponent {
 
         this.validationMessages = {
             firstName: {
-                required: 'Informe o Primeiro Nome',
+                required: 'Informe o nome',
                 minlength: 'Mínimo de 2 caracteres',
                 maxlength: 'Máximo de 200 caracteres'
             },
             lastName: {
-                required: 'Informe o Sobrenome',
+                required: 'Informe o sobrenome',
                 minlength: 'Mínimo de 2 caracteres',
                 maxlength: 'Máximo de 1000 caracteres'
             },
             value: {
-                required: 'Informe o Valor',
+                required: 'Informe o valor',
+                min: 'Valor deve ser maior que 0'
             }
         }
 

@@ -27,7 +27,7 @@ export class NewParticipationComponent extends ParticipationBaseComponent implem
     this.participationForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]],
       lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(1000)]],
-      value: ['', [Validators.required]],
+      value: ['', [Validators.required, Validators.min(1)]],
     });
   }
 

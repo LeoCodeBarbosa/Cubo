@@ -1,26 +1,38 @@
-<form enctype="multipart/form-data" (ngSubmit)="addParticipation()" [formGroup]="participationForm" class="form-participation">
+<form enctype="multipart/form-data" (ngSubmit)="addParticipation()" [formGroup]="participationForm"
+    class="form-participation">
     <div class="input-group">
-        <label class="control-label">Nome</label>
-        <div>
-            <input class="form-control" id="firstName" type="text" placeholder="Informe o nome"
-                formControlName="firstName" [ngClass]="{'is-invalid': displayMessage.firstName }" />
-        </div>
+        <mat-form-field>
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" formControlName="firstName"
+                [ngClass]="{'is-invalid': displayMessage.firstName }" placeholder="Informe o nome">
+            <mat-error *ngIf="displayMessage.firstName">
+                <span [innerHTML]="displayMessage.firstName"></span>
+            </mat-error>
+        </mat-form-field>
     </div>
     <div class="input-group">
-        <label class="control-label">Sobrenome</label>
-        <div>
-            <input class="form-control" id="lastName" type="text" placeholder="Informe o sobrenome"
+        <mat-form-field>
+            <mat-label>Sobrenome</mat-label>
+            <input matInput class="form-control" id="lastName" type="text" placeholder="Informe o sobrenome"
                 formControlName="lastName" [ngClass]="{'is-invalid': displayMessage.lastName }" />
-        </div>
+            <mat-error *ngIf="displayMessage.lastName">
+                <span [innerHTML]="displayMessage.lastName"></span>
+            </mat-error>
+        </mat-form-field>
     </div>
     <div class="input-group">
-        <label class="control-label">Valor</label>
-        <div>
-            <input class="form-control" id="value" type="text" placeholder="Informe o valor" formControlName="value"
-                [textMask]="{mask: MASKS.number.textMask}" [ngClass]="{'is-invalid': displayMessage.value }" />
-        </div>
+        <mat-form-field>
+            <mat-label>Valor</mat-label>
+            <input matInput class="form-control" id="value" type="text" placeholder="Informe o valor"
+                formControlName="value" [textMask]="{mask: MASKS.number.textMask}"
+                [ngClass]="{'is-invalid': displayMessage.value }" />
+            <mat-error *ngIf="displayMessage.value">
+                <span [innerHTML]="displayMessage.value"></span>
+            </mat-error>
+        </mat-form-field>
     </div>
     <div class="input-group">
-        <button mat-flat-button type="submit" id="cadParticipation" [disabled]="!participationForm.valid" >Enviar</button>
-    </div>   
+        <button mat-flat-button color="primary" type="submit" id="cadParticipation"
+            [disabled]="!participationForm.valid">Enviar</button>
+    </div>
 </form>

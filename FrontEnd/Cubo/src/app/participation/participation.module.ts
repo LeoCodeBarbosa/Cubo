@@ -15,7 +15,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -36,13 +37,14 @@ import {MatInputModule} from '@angular/material/input';
     MatPaginatorModule,
     MatCardModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDividerModule
   ],
   providers: [
     ParticipationService,
     ParticipationGuard
   ],
-  exports:[
+  exports: [
     ParticipationAppComponent
   ]
 })
