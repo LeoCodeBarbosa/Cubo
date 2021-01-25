@@ -36,7 +36,6 @@ namespace Cubo.API.Controllers
             _appSettings = appSettings.Value;
         }
 
-        [EnableCors("Development")]//Executar Método Insomnia
         [HttpPost("register")]
         public async Task<ActionResult> Registrar(RegisterUserViewModel registerUser)
         {
@@ -63,7 +62,6 @@ namespace Cubo.API.Controllers
             return CustomResponse(registerUser);
         }
 
-        [EnableCors("Development")]//Executar Método Insomnia
         [HttpPost("login")]
         public async Task<ActionResult> Login(LoginUserViewModel loginUser)
         {
