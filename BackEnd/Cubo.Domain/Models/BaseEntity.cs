@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using FluentValidation.Results;
 
 namespace Cubo.Domain.Models
@@ -12,6 +13,7 @@ namespace Cubo.Domain.Models
 
         public Guid Id { get; set; }
 
+        [NotMapped]
         public ValidationResult ValidationResult { get; protected set; }
 
         public virtual bool IsValid()

@@ -9,6 +9,7 @@ using Cubo.Domain.Interfaces;
 using Cubo.Domain.Interfaces.Repository;
 using Cubo.Domain.Interfaces.Service;
 using Cubo.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cubo.API.Controllers
@@ -32,12 +33,21 @@ namespace Cubo.API.Controllers
             _mapper = mapper;
         }
 
+        //[Authorize]
         [HttpGet]
         public async Task<IEnumerable<ParticipationViewModel>> GetAll()
         {
             return _mapper.Map<IEnumerable<ParticipationViewModel>>(await _participationRepository.GetAll());
         }
 
+        [Authorize]
+        [HttpGet]
+        public async Task<IEnumerable<ParticipationViewModel>> GetAllAuthorize()
+        {
+            return _mapper.Map<IEnumerable<ParticipationViewModel>>(await _participationRepository.GetAll());
+        }
+
+        //[Authorize]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<ParticipationViewModel>> GetById(Guid id)
         {
@@ -48,7 +58,7 @@ namespace Cubo.API.Controllers
             return participationViewModel;
         }
 
-        //[ClaimsAuthorize("Participation", "Add")]
+        //[Authorize]
         [HttpPost]
         public async Task<ActionResult<ParticipationViewModel>> Add(ParticipationViewModel participationViewModel)
         {
@@ -59,7 +69,7 @@ namespace Cubo.API.Controllers
             return CustomResponse(participationViewModel);
         }
 
-        //[ClaimsAuthorize("Participation", "Update")]
+        //[Authorize]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, ParticipationViewModel participationViewModel)
         {
@@ -75,7 +85,7 @@ namespace Cubo.API.Controllers
             return CustomResponse(participationViewModel);
         }
 
-        //[ClaimsAuthorize("Participation", "Remove")]
+        //[Authorize]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ParticipationViewModel>> Remove(Guid id)
         {
