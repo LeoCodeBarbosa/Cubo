@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { ParticipationGuard } from './services/participation.guard';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   providers: [
-    ParticipationService
+    ParticipationService,
+    ParticipationGuard
   ],
   exports: [
     ParticipationAppComponent

@@ -20,7 +20,7 @@ export class ParticipationService extends BaseService {
 
     addParticipation(participation: Participation): Observable<Participation> {
         return this.http
-            .post(this.UrlServiceV1 + "participation", participation, super.ObterHeaderJson())
+            .post(this.UrlServiceV1 + "participation", participation, super.ObterAuthHeaderJson())
             .pipe(
                 map(super.extractData),
                 catchError(super.serviceError));
@@ -28,7 +28,7 @@ export class ParticipationService extends BaseService {
 
     deleteParticipation(id: string): Observable<Participation> {
         return this.http
-            .delete(this.UrlServiceV1 + "participation/" + id, super.ObterHeaderJson())
+            .delete(this.UrlServiceV1 + "participation/" + id, super.ObterAuthHeaderJson())
             .pipe(
                 map(super.extractData),
                 catchError(super.serviceError));

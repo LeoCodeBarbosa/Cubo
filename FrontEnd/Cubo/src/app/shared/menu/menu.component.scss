@@ -1,3 +1,13 @@
 .mat-toolbar-row, .mat-toolbar-single-row{
   justify-content: space-between;
 }
+.toolbar-menu-left{
+  display:flex;
+  .menu-app-name{
+    padding-left: 15px;
+  }
+}
+
+.menu-email-name{
+  font-size: 15px;
+}

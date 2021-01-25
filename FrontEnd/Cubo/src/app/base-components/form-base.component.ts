@@ -11,7 +11,7 @@ export abstract class FormBaseComponent {
     genericValidator: GenericValidator;
     validationMessages: ValidationMessages;
 
-    mudancasNaoSalvas: boolean;
+    changesNotSalved: boolean;
 
     protected  configureBaseValidationMsg(validationMessages: ValidationMessages) {
         this.genericValidator = new GenericValidator(validationMessages);
@@ -31,6 +31,6 @@ export abstract class FormBaseComponent {
 
     protected validatedForm(formGroup: FormGroup) {
         this.displayMessage = this.genericValidator.processMsgs(formGroup);
-        this.mudancasNaoSalvas = true;
+        this.changesNotSalved = true;
     }
 }

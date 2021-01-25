@@ -40,7 +40,7 @@ namespace Cubo.API.Controllers
             return _mapper.Map<IEnumerable<ParticipationViewModel>>(await _participationRepository.GetAll());
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<ParticipationViewModel>> GetById(Guid id)
         {
@@ -51,7 +51,7 @@ namespace Cubo.API.Controllers
             return participationViewModel;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<ParticipationViewModel>> Add(ParticipationViewModel participationViewModel)
         {
@@ -62,7 +62,7 @@ namespace Cubo.API.Controllers
             return CustomResponse(participationViewModel);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, ParticipationViewModel participationViewModel)
         {
@@ -78,7 +78,7 @@ namespace Cubo.API.Controllers
             return CustomResponse(participationViewModel);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ParticipationViewModel>> Remove(Guid id)
         {

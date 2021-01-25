@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     
     canActivate() {
         if(this.localStorageUtils.getUserToken()){
-            this.router.navigate(['/home']);
+            this.router.navigate(['/participation']);
         }
         return true;
     }

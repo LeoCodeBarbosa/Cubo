@@ -1,43 +1,52 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row class="toolbar-menu-row">
-        <div class="toolbar-menu-icon">
-            <span class="nav-menu"></span>
-            <button mat-mini-fab color="primary" aria-label="Menu" [matMenuTriggerFor]="menu">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="navigateMenu('/home')">
-                    <mat-icon>home</mat-icon>
-                    <span>Home</span>
+        <div class="toolbar-menu-left">
+            <div class="toolbar-menu-icon">
+                <span class="nav-menu"></span>
+                <button mat-icon-button aria-label="Menu" [matMenuTriggerFor]="menu">
+                    <mat-icon>menu</mat-icon>
                 </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="navigateMenu('/home')">
+                        <mat-icon>home</mat-icon>
+                        <span>Home</span>
+                    </button>
 
-                <!-- Menus Sistema -->
-                <div [ngSwitch]="userIsAuthenticated()">
-                    <button *ngSwitchCase="true" mat-menu-item (click)="navigateMenu('/participation')">
-                        <mat-icon>persons</mat-icon>
-                        <span>Participações</span>
-                    </button>
-                </div>
-                
-                <!-- Menus Auth -->
-                <div [ngSwitch]="userIsAuthenticated()">
-                    <button *ngSwitchCase="false" mat-menu-item (click)="navigateMenu('/auth/register')">
-                        <mat-icon>account_circle</mat-icon>
-                        <span>Registrar</span>
-                    </button>
-                    <button *ngSwitchCase="false" mat-menu-item (click)="navigateMenu('/auth/login')">
-                        <mat-icon>login</mat-icon>
-                        <span>Login</span>
-                    </button>
-                    <button *ngSwitchCase="true" mat-menu-item (click)="logout()">
-                        <mat-icon>logout</mat-icon>
-                        <span>Logout</span>
-                    </button>
-                </div>
-            </mat-menu>
+                    <!-- Menus Sistema -->
+                    <div [ngSwitch]="userIsAuthenticated()">
+                        <button *ngSwitchCase="true" mat-menu-item (click)="navigateMenu('/participation')">
+                            <mat-icon>persons</mat-icon>
+                            <span>Participações</span>
+                        </button>
+                    </div>
+
+                    <!-- Menus Auth -->
+                    <div [ngSwitch]="userIsAuthenticated()">
+                        <button *ngSwitchCase="false" mat-menu-item (click)="navigateMenu('/auth/register')">
+                            <mat-icon>account_circle</mat-icon>
+                            <span>Registrar</span>
+                        </button>
+                        <button *ngSwitchCase="false" mat-menu-item (click)="navigateMenu('/auth/login')">
+                            <mat-icon>login</mat-icon>
+                            <span>Login</span>
+                        </button>
+                        <button *ngSwitchCase="true" mat-menu-item (click)="logout()">
+                            <mat-icon>logout</mat-icon>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </mat-menu>
+            </div>
+            <div class="menu-app-name">
+                <span>Cubo App</span>
+            </div>
         </div>
-        <div class="toolbar-menu-app-name">
-            <span>Cubo App</span>
+        <div class="toolbar-menu-right">
+            <div [ngSwitch]="userIsAuthenticated()">
+                <div *ngSwitchCase="true" class="menu-email-name">
+                    <span>Bem vindo {{ email }} !</span>
+                </div>
+            </div>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>

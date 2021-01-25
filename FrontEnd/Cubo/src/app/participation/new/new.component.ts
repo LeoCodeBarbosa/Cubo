@@ -45,7 +45,7 @@ export class NewParticipationComponent extends ParticipationBaseComponent implem
           falha => { this.processFail(falha) }
         );
 
-      this.mudancasNaoSalvas = false;
+      this.changesNotSalved = false;
     }
   }
 
