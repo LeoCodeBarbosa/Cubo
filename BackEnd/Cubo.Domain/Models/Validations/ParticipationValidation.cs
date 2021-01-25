@@ -2,7 +2,7 @@
 
 namespace Cubo.Domain.Models.Validations
 {
-    class ParticipationValidation : AbstractValidator<Participation>
+    public class ParticipationValidation : AbstractValidator<Participation>
     {
         public ParticipationValidation()
         {
