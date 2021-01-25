@@ -16,6 +16,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Cubo.API.Controllers
 {
+    [ApiController]
     public class AuthController : MainController
     {
         private readonly SignInManager<IdentityUser> _signInManager;

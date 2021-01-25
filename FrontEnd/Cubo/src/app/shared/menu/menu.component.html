@@ -10,10 +10,30 @@
                     <mat-icon>home</mat-icon>
                     <span>Home</span>
                 </button>
-                <button mat-menu-item (click)="navigateMenu('/participation')">
-                    <mat-icon>persons</mat-icon>
-                    <span>Participações</span>
-                </button>
+
+                <!-- Menus Sistema -->
+                <div [ngSwitch]="userIsAuthenticated()">
+                    <button *ngSwitchCase="true" mat-menu-item (click)="navigateMenu('/participation')">
+                        <mat-icon>persons</mat-icon>
+                        <span>Participações</span>
+                    </button>
+                </div>
+                
+                <!-- Menus Auth -->
+                <div [ngSwitch]="userIsAuthenticated()">
+                    <button *ngSwitchCase="false" mat-menu-item (click)="navigateMenu('/auth/register')">
+                        <mat-icon>account_circle</mat-icon>
+                        <span>Registrar</span>
+                    </button>
+                    <button *ngSwitchCase="false" mat-menu-item (click)="navigateMenu('/auth/login')">
+                        <mat-icon>login</mat-icon>
+                        <span>Login</span>
+                    </button>
+                    <button *ngSwitchCase="true" mat-menu-item (click)="logout()">
+                        <mat-icon>logout</mat-icon>
+                        <span>Logout</span>
+                    </button>
+                </div>
             </mat-menu>
         </div>
         <div class="toolbar-menu-app-name">

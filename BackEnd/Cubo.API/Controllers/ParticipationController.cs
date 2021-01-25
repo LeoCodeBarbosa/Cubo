@@ -33,16 +33,9 @@ namespace Cubo.API.Controllers
             _mapper = mapper;
         }
 
-        //[Authorize]
-        [HttpGet]
-        public async Task<IEnumerable<ParticipationViewModel>> GetAll()
-        {
-            return _mapper.Map<IEnumerable<ParticipationViewModel>>(await _participationRepository.GetAll());
-        }
-
         [Authorize]
         [HttpGet]
-        public async Task<IEnumerable<ParticipationViewModel>> GetAllAuthorize()
+        public async Task<IEnumerable<ParticipationViewModel>> GetAll()
         {
             return _mapper.Map<IEnumerable<ParticipationViewModel>>(await _participationRepository.GetAll());
         }

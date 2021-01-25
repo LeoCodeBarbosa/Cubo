@@ -14,7 +14,7 @@ export class ParticipationService extends BaseService {
 
     getAll(): Observable<Participation[]> {
         return this.http
-            .get<Participation[]>(this.UrlServiceV1 + "participation", super.ObterHeaderJson())
+            .get<Participation[]>(this.UrlServiceV1 + "participation", super.ObterAuthHeaderJson())
             .pipe(catchError(super.serviceError));
     }
 
