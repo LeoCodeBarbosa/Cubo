@@ -14,6 +14,12 @@ import { AuthService } from './services/auth.service';
 import { CustomFormsModule } from 'ngx-custom-validators'
 import { AuthGuard } from './services/auth.guard';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AuthAppComponent,
@@ -27,7 +33,12 @@ import { AuthGuard } from './services/auth.guard';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CustomFormsModule
+    CustomFormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDividerModule,
+    MatIconModule,
   ],
   providers: [
     AuthService,

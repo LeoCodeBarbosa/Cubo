@@ -12,7 +12,8 @@ import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent extends FormBaseComponent implements OnInit, AfterViewInit {
 
