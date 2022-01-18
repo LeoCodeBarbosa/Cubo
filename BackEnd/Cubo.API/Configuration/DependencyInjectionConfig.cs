@@ -17,9 +17,10 @@ namespace Cubo.API.Configuration
     {
         public static IServiceCollection ResolveDependencies(this IServiceCollection services)
         {
+           
             services.AddScoped<CuboDbContext>();
             services.AddScoped<IParticipationRepository, ParticipationRepository>();
-
+            services.AddScoped<IAlgoritimoRepository ,AlgarismoRomanoRepository>();
             services.AddScoped<INotificator, Notificator>();
             services.AddScoped<IParticipationService, ParticipationService>();
 

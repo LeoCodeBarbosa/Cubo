@@ -12,6 +12,7 @@ namespace Cubo.Core.Context
         public CuboDbContext(DbContextOptions<CuboDbContext> options) : base(options) { }
 
         public DbSet<Participation> Participations { get; set; }
+        public DbSet<AlgarismoRomano> AlgarismoRomanos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var property in modelBuilder.Model.GetEntityTypes()
