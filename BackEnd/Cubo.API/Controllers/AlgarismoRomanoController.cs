@@ -11,6 +11,7 @@ using Cubo.Domain.Models;
 namespace Cubo.API.Controllers
 {
     [ApiController]
+    [Route("[controller]")]
     public class AlgarismoRomanoController : MainController
     {
 

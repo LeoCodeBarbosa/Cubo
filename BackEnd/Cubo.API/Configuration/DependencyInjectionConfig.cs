@@ -20,7 +20,7 @@ namespace Cubo.API.Configuration
            
             services.AddScoped<CuboDbContext>();
             services.AddScoped<IParticipationRepository, ParticipationRepository>();
-            services.AddScoped<IAlgoritimoRepository ,AlgarismoRomanoRepository>();
+            services.AddScoped<IAlgarismoRomanoRepository, AlgarismoRomanoRepository>();
             services.AddScoped<INotificator, Notificator>();
             services.AddScoped<IParticipationService, ParticipationService>();
 
