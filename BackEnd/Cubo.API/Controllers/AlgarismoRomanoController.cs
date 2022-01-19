@@ -43,7 +43,8 @@ namespace Cubo.API.Controllers
         [HttpPost]
         public async Task<ActionResult<AlgarismoRomanoViewModel>> Add(AlgarismoRomanoViewModel algarismoRomanoView)
         {
-
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+           
              await _algarismoRomanoService.Add(_mapper.Map<AlgarismoRomano>(algarismoRomanoView));
 
             return CustomResponse(algarismoRomanoView);
