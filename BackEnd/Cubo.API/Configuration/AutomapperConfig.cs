@@ -9,6 +9,7 @@ namespace Cubo.API.Configuration
         public AutomapperConfig()
         {
             CreateMap<Participation, ParticipationViewModel>().ReverseMap();
+            CreateMap<AlgarismoRomano, AlgarismoRomanoViewModel>().ReverseMap();
         }
     }
 }
