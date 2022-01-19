@@ -7,6 +7,9 @@ using Cubo.Domain.Interfaces.Repository;
 using Cubo.Core.Repositories;
 using Cubo.Domain.Interfaces;
 using Cubo.Domain.Models;
+using Cubo.Domain.Interfaces.Service;
+using AutoMapper;
+using Cubo.API.ViewModels;
 
 namespace Cubo.API.Controllers
 {
@@ -16,26 +19,34 @@ namespace Cubo.API.Controllers
     {
 
         private readonly AlgarismoRomanoRepository _algarismoRomanoRepository ;
-        public AlgarismoRomanoController(INotificator notificator,AlgarismoRomanoRepository algarismoRomanoRepository, IUser user) : base(notificator, user)
+        
+        private readonly IAlgarismoRomanoService _algarismoRomanoService;
+        private readonly IMapper _mapper;
+
+        public AlgarismoRomanoController(IAlgarismoRomanoService algarismoRomanoService,
+                                             INotificator notificator, 
+                                             AlgarismoRomanoRepository algarismoRomanoRepository,
+                                             IMapper mapper, IUser user) : base(notificator, user)
         {
-            _algarismoRomanoRepository = algarismoRomanoRepository; 
+            _algarismoRomanoRepository = algarismoRomanoRepository;
+            _algarismoRomanoService = algarismoRomanoService;
+            _mapper = mapper;
         }
 
-      
+
         [HttpGet]
-        public async Task<IEnumerable<AlgarismoRomano>> GetAll()
+        public async Task<IEnumerable<AlgarismoRomanoViewModel>> GetAll()
         {
-            return await _algarismoRomanoRepository.GetAll();
+            return _mapper.Map<IEnumerable<AlgarismoRomanoViewModel>>(await _algarismoRomanoRepository.GetAll());
+
         }
-
-               
         [HttpPost]
-        public async Task<ActionResult<AlgarismoRomano>> Add(AlgarismoRomano algarismoRomano)
+        public async Task<ActionResult<AlgarismoRomanoViewModel>> Add(AlgarismoRomanoViewModel algarismoRomanoView)
         {
 
-             await _algarismoRomanoRepository.Add(algarismoRomano);
+             await _algarismoRomanoRepository.Add(_mapper.Map<AlgarismoRomano>(algarismoRomanoView));
 
-            return algarismoRomano;
+            return CustomResponse(algarismoRomanoView);
           
         }
 
