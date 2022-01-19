@@ -9,11 +9,11 @@ namespace Cubo.Domain.Models.Validations
     {
         public AlgarismoRomanoValidation()
         {
-            
+
 
             RuleFor(c => c.Value_romano)
-                .NotEmpty().WithMessage("O campo {PropertyName} é obrigatório")
-                .Length(2, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
+                .NotEmpty().WithMessage("O campo {PropertyName} é obrigatório");
+                
 
             RuleFor(c => c.Value_int)
                 .GreaterThan(0).WithMessage("O campo {PropertyName} precisa ser maior que {ComparisonValue}");

@@ -44,7 +44,7 @@ namespace Cubo.API.Controllers
         public async Task<ActionResult<AlgarismoRomanoViewModel>> Add(AlgarismoRomanoViewModel algarismoRomanoView)
         {
 
-             await _algarismoRomanoRepository.Add(_mapper.Map<AlgarismoRomano>(algarismoRomanoView));
+             await _algarismoRomanoService.Add(_mapper.Map<AlgarismoRomano>(algarismoRomanoView));
 
             return CustomResponse(algarismoRomanoView);
           
