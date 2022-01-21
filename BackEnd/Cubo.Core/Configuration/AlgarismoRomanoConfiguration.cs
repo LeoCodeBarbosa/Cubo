@@ -9,13 +9,13 @@ namespace Cubo.Core.Configuration
 {
     class AlgarismoRomanoConfiguration : IEntityTypeConfiguration<AlgarismoRomano>
     {
-        public void Configure(EntityTypeBuilder <AlgarismoRomano> builder)
+        public void Configure(EntityTypeBuilder<AlgarismoRomano> builder)
         {
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Value_int)
                 .IsRequired();
-                
+
 
             builder.Property(p => p.Value_romano)
                 .IsRequired()

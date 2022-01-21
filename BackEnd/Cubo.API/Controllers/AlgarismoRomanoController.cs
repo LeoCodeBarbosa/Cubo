@@ -18,14 +18,13 @@ namespace Cubo.API.Controllers
     public class AlgarismoRomanoController : MainController
     {
 
-        private readonly AlgarismoRomanoRepository _algarismoRomanoRepository ;
-        
+        private readonly IAlgarismoRomanoRepository _algarismoRomanoRepository ;
         private readonly IAlgarismoRomanoService _algarismoRomanoService;
         private readonly IMapper _mapper;
 
         public AlgarismoRomanoController(IAlgarismoRomanoService algarismoRomanoService,
                                              INotificator notificator, 
-                                             AlgarismoRomanoRepository algarismoRomanoRepository,
+                                             IAlgarismoRomanoRepository algarismoRomanoRepository,
                                              IMapper mapper, IUser user) : base(notificator, user)
         {
             _algarismoRomanoRepository = algarismoRomanoRepository;
