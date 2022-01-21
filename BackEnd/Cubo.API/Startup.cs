@@ -43,7 +43,6 @@ namespace Cubo.API
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            //Configuração Identity
             services.AddIdentityConfiguration(Configuration);
 
             services.AddAutoMapper(typeof(Startup));
@@ -63,7 +62,7 @@ namespace Cubo.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMiddleware<ExceptionMiddleware>();
+            //app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseMvcConfiguration();
 
